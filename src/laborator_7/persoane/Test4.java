@@ -1,0 +1,33 @@
+package laborator_7.persoane;
+
+class Test4 {
+    public static void main(String args[]) {
+        Persoana student, teacher, person;
+        student = new Student("Popescu Ion", "Bucuresti");
+        teacher = new Profesor("Ionescu Gigel", "Bucuresti");
+        person = new Persoana("Maria", "Iasi");
+        assert (person.getName().equals("Maria")) : "Metoda getName din clasa Person nu este implementata corect";
+        assert (((Profesor) teacher).addCourse("Programare")) : "Metoda addCourse din clasa Teacher nu este " +
+                "implementata corect";
+        assert (((Profesor) teacher).addCourse("Algoritmica")) : "Metoda addCourse din clasa Teacher nu este " +
+                "implementata corect";
+        assert (((Profesor) teacher).addCourse("Matematica")) : "Metoda addCourse din clasa Teacher nu este " +
+                "implementata corect";
+        assert (!((Profesor) teacher).addCourse("Programare")) : "Metoda addCourse din clasa Teacher nu este " +
+                "implementata corect";
+        assert (((Profesor) teacher).removeCourse("Programare")) : "Metoda addCourse din clasa Teacher nu este " +
+                "implementata corect";
+        assert (!((Profesor) teacher).addCourse("Programare")) : "Metoda addCourse din clasa Teacher nu este " +
+                "implementata corect";
+        ((Student) student).addCourseGrade("Programare", 10);
+        ((Student) student).addCourseGrade("Algoritmica", 9);
+        ((Student) student).addCourseGrade("Matematica", 8);
+        assert (Math.abs(((Student) student).getAverageGrade() - 9.00) <= 0.001) : "Metoda getAverageGrade din clasa " +
+                "Student nu a fost implementat corect";
+        ((Student) student).printGrades();
+        //Ce metoda toString se va apela? Din ce clasa?
+        System.out.println(student);
+        System.out.println(person);
+        System.out.println("Felicitari! Problema a fost rezolvata corect!");
+    }
+}
